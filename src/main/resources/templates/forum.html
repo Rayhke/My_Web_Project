@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="UTF-8"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/defaultLayout}"
+      layout:fragment="Content">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>게시판</title>
+    </head>
+    <body>
+        <tr th:each="paging : ${pagingList}">
+            <td th:text="paging.id"></td>
+            <td></td>
+        </tr>
+    </body>
+</html>

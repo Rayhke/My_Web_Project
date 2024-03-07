@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- Thymeleaf 선언 / fragment 으로 이름을 NavFragment 임을 선언 -->
+<html lang="UTF-8"
+        xmlns:th="http://www.thymeleaf.org"
+        th:fragment="NavFragment">
+
+    <div>
+        <h1>Nav-bar 영역입니다.</h1>
+        <nav class="nav-bar">
+            <div>
+                <ul>
+                    <li>
+                        <a class="nav-link" href="/">메인</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/baseEntity">게시판</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</html>

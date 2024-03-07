@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Thymeleaf 선언 / fragment 으로 이름을 LoginFragment 임을 선언 -->
+<html lang="UTF-8"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="LoginFragment">
+
+    <div style="border: solid 1px black">
+        <div th:if="${session.loginUser}" align="center">
+            <p>[로그인 유저 : <span th:text="${session.loginUser}"></span>]</p>
+            <a th:href="@{/logout}"><button type="button">로그아웃</button></a><br><br>
+        </div>
+
+        <div th:unless="${session.loginUser}">
+            <div th:if="${successMessage}" class="alert alert-danger" role="alert" align="center">
+                <b>[<span th:text="${successMessage}"></span>]</b>
+            </div>
+
+            <div th:if="${errorMessage}" class="alert alert-danger" role="alert" align="center">
+                <b>[<span th:text="${errorMessage}"></span>]</b>
+            </div>
+
+            <div align="center">
+                로그인<br><br>
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <input type="text" id="loginID" name="loginID" placeholder="아이디"><br>
+                        <input type="password" id="loginPassword" name="loginPassword" placeholder="비밀번호"><br>
+                    </div><br>
+                    <div>
+                        <button type="submit">로그인</button>
+                        <a th:href="@{/member}"><button type="button">회원가입</button></a>
+                    </div>
+                </form>
+            </div><br>
+        </div>
+    </div>
+
+</html>

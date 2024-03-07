@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- 라이브러리 참조 : Thymeleaf & Thymeleaf Layout -->
+<html lang="UTF-8"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <!-- 공통 JS / CSS 영역을 관리하는 환경 영역 -->
+    <head th:replace="common/fragments/config :: ConfigFragment">
+        <meta charset="UTF-8">
+        <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">공통 타이틀</title>
+    </head>
+
+    <!-- fragments 조립 -->
+    <body>
+        <!-- Header 영역을 참조합니다. -->
+        <header th:replace="common/fragments/header :: HeaderFragment"></header>
+
+        <div style="display: flex;">
+
+            <div style="border: solid 1px gray">
+                <!-- Login 영역을 참조합니다. -->
+                <login th:replace="common/fragments/login :: LoginFragment"></login>
+                <!-- Nav-bar 영역을 참조합니다. -->
+                <nav-bar th:replace="common/fragments/nav :: NavFragment"></nav-bar>
+            </div>
+
+            <!-- Content 내용 영역을 참조합니다. -->
+            <th:block layout:fragment="Content"></th:block>
+
+        </div>
+
+        <!-- Footer 영역을 참조합니다. -->
+        <footer th:replace="common/fragments/footer :: FooterFragment"></footer>
+    </body>
+
+</html>

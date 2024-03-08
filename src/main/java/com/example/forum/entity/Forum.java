@@ -15,7 +15,6 @@ public class Forum extends BaseEntity {
 
     @Id
     private Long id;
-    // private String title;
     private String author;
-
+    
 }

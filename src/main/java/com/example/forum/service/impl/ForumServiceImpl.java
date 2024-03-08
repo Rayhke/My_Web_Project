@@ -27,11 +27,13 @@ public class ForumServiceImpl implements ForumService {
 
     @Override
     public ForumDTO update(Long id, String author) {
+
         return null;
     }
 
     @Override
-    public Optional<Forum> findId(Long id) {
+    public Optional<Forum> findById(Long id) {
+
         return null;
     }
 }

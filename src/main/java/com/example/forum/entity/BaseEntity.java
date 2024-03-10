@@ -7,10 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
-<<<<<<< HEAD
-=======
-import javax.persistence.Id;
->>>>>>> 2788a79b835efcc00a4616021485da918b740814
+
 import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
 

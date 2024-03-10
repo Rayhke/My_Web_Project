@@ -20,11 +20,7 @@ public class UserDTO {
     private String userPhone;
     private String userEmail;
 
-<<<<<<< HEAD
-    /*public User userEntity() {
-=======
     public User userEntity() {
->>>>>>> 2788a79b835efcc00a4616021485da918b740814
         return User.builder()
                 .nickname(userNickname)
                 .role(null)
@@ -39,9 +35,5 @@ public class UserDTO {
                 .phone(userPhone)
                 .email(userEmail)
                 .build();
-<<<<<<< HEAD
-    }*/
-=======
     }
->>>>>>> 2788a79b835efcc00a4616021485da918b740814
 }

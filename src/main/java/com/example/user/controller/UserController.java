@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/*
-=======
->>>>>>> 2788a79b835efcc00a4616021485da918b740814
 package com.example.user.controller;
 
 import com.example.user.dto.LoginDTO;
@@ -50,9 +46,4 @@ public class UserController {
         usersService.save(userDTO);
         return "users/ok";
     }
-
 }
-<<<<<<< HEAD
-*/
-=======
->>>>>>> 2788a79b835efcc00a4616021485da918b740814

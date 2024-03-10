@@ -11,9 +11,6 @@ public interface ForumService {
 
     ForumDTO update(Long id, String author);
 
-<<<<<<< HEAD
     Optional<Forum> findById(Long id);
-=======
-    Optional<Forum> findId(Long id);
->>>>>>> 2788a79b835efcc00a4616021485da918b740814
+
 }

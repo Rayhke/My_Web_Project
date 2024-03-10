@@ -1,4 +1,3 @@
-/*
 package com.example.user.service;
 
 import com.example.user.dto.UserDTO;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import java.sql.Timestamp;
 
 @Service
 @RequiredArgsConstructor
@@ -30,4 +28,3 @@ public class UsersService {
         return em.find(Member.class, userId);
     }
 }
-*/

@@ -20,7 +20,7 @@ public class UserDTO {
     private String userPhone;
     private String userEmail;
 
-    /*public User userEntity() {
+    public User userEntity() {
         return User.builder()
                 .nickname(userNickname)
                 .role(null)
@@ -35,5 +35,5 @@ public class UserDTO {
                 .phone(userPhone)
                 .email(userEmail)
                 .build();
-    }*/
+    }
 }

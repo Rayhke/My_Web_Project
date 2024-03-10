@@ -3,7 +3,7 @@ package com.example.user.controller;
 import com.example.user.dto.LoginDTO;
 import com.example.user.dto.UserDTO;
 import com.example.user.entity.Member;
-import com.example.user.service.UsersService;
+import com.example.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +18,12 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 public class UserController {
 
-    // @Autowired
-    // private final UsersService usersService;
+    @Autowired
+    private final UserService userService;
 
-    /*@PostMapping("/login")
+    @PostMapping("/login")
     public String login(@ModelAttribute LoginDTO loginDTO, HttpServletRequest request) {
-        Member result = usersService.findId(loginDTO.getUserId());
+        Member result = userService.findById(loginDTO.getUserId());
         if (result.getId().equals(loginDTO.getUserId())) {
             if (result.getPwd().equals(loginDTO.getUserPwd())) {
                 HttpSession session = request.getSession();
@@ -34,7 +34,7 @@ public class UserController {
             }
         }
         return "/";
-    }*/
+    }
 
     @GetMapping("/member")
     public String member() {

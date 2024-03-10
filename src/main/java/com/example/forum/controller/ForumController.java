@@ -18,9 +18,8 @@ public class ForumController {
         this.forumService = forumService;
     }
 
-    /*@PostMapping(value = "/plus")
+    @PostMapping(value = "/plus")
     public ForumDTO createdForum(@RequestBody ForumDTO forumDTO) {
         return forumService.save(forumDTO.getId(), forumDTO.getAuthor());
-
-    }*/
+    }
 }

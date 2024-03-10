@@ -15,10 +15,10 @@ public class ForumDTO {
     private Long id;
     private String author;
 
-    public Forum toEntity() {
+    /*public Forum toEntity() {
         return Forum.builder()
                 .id(id)
                 .author(author)
                 .build();
-    }
+    }*/
 }

@@ -18,10 +18,10 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private final UsersService usersService;
+    // @Autowired
+    // private final UsersService usersService;
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String login(@ModelAttribute LoginDTO loginDTO, HttpServletRequest request) {
         Member result = usersService.findId(loginDTO.getUserId());
         if (result.getId().equals(loginDTO.getUserId())) {
@@ -34,7 +34,7 @@ public class UserController {
             }
         }
         return "/";
-    }
+    }*/
 
     @GetMapping("/member")
     public String member() {
@@ -43,7 +43,7 @@ public class UserController {
 
     @PostMapping("/member")
     public String save(@ModelAttribute UserDTO userDTO) {
-        usersService.save(userDTO);
+        // usersService.save(userDTO);
         return "users/ok";
     }
 }

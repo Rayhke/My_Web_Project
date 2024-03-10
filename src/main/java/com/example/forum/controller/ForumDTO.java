@@ -1,13 +1,11 @@
 package com.example.forum.controller;
 
-import com.example.forum.entity.Forum;
 import lombok.*;
 
 import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Builder
 public class ForumDTO {
@@ -15,6 +13,11 @@ public class ForumDTO {
     private Long id;
     private String author;
 
+    @Builder
+    public ForumDTO(Long id, String author) {
+        this.id = id;
+        this.author = author;
+    }
     /*public Forum toEntity() {
     public Forum toEntity() {
         return Forum.builder()

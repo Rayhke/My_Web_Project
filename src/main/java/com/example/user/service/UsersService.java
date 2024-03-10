@@ -14,17 +14,17 @@ import javax.persistence.EntityManager;
 @RequiredArgsConstructor
 public class UsersService {
 
-    @Autowired
-    private final UserRepository userRepository;
+    /*@Autowired
+    private final UserRepository userRepository;*/
     
-    @Autowired
-    private final EntityManager em;
+    /*@Autowired
+    private final EntityManager em;*/
 
     public User save(UserDTO userDTO) {
         return null;
     }
 
-    public Member findId(String userId) {
+    /*public Member findId(String userId) {
         return em.find(Member.class, userId);
-    }
+    }*/
 }

@@ -28,6 +28,7 @@ public class Member {
     private String nickname;
 
     private String phone;
+
     private String email;
 
 }

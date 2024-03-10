@@ -28,14 +28,14 @@ public class test {
             User user = userDTO.userEntity();
             Member member = userDTO.memberEntity();*/
 
-            Forum forum = Forum.builder()
+            /*Forum forum = Forum.builder()
                     .id(1L)
                     .author("이동현")
-                    .build();
+                    .build();*/
 
             // em.persist(user);
             // em.persist(member);
-            em.persist(forum);
+            // em.persist(forum);
             tx.commit();
         } catch(Exception e) {
             tx.rollback();

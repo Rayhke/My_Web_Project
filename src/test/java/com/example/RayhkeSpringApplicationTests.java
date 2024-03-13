@@ -8,6 +8,7 @@ class RayhkeSpringApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

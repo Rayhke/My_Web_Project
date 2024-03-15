@@ -1,18 +1,24 @@
-/*
 package com.example.forum.service;
 
-import com.example.forum.controller.ForumDTO;
 import com.example.forum.entity.Forum;
+import com.example.forum.repository.ForumRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
-public interface ForumService {
+@Service
+public class ForumService {
 
-    ForumDTO save(Long id, String author);
+    private final ForumRepository forumRepository;
 
-    ForumDTO update(Long id, String author);
+    @Autowired
+    public ForumService(ForumRepository forumRepository) {
+        this.forumRepository = forumRepository;
+    }
 
-    Optional<Forum> findById(Long id);
-
+    public List<Forum> ForumList() {
+        return forumRepository.findAll();
+    }
 }
-*/

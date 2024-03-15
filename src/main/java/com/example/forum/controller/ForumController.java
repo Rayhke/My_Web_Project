@@ -1,26 +1,21 @@
-/*
 package com.example.forum.controller;
 
-import com.example.forum.service.impl.ForumServiceImpl;
+import com.example.forum.entity.Forum;
+import com.example.forum.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/forum")
+import java.util.List;
+
 public class ForumController {
 
-    private final ForumServiceImpl forumService;
+    private final ForumService forumService;
 
     @Autowired
-    public ForumController(ForumServiceImpl forumService) {
+    public ForumController(ForumService forumService) {
         this.forumService = forumService;
     }
 
-    @PostMapping(value = "/plus")
-    public ForumDTO createdForum(@RequestBody ForumDTO forumDTO) {
-        return forumService.save(forumDTO.getId(), forumDTO.getAuthor());
+    public List<Forum> ForumList() {
+        return forumService.ForumList();
     }
-}*/
+}

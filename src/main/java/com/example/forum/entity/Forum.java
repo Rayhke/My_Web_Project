@@ -23,7 +23,7 @@ public class Forum extends BaseEntity {
     private String author;
     private String category;
 
-    public void update(ForumDTO other) {
+    public void update(Forum other) {
         title = other.getTitle();
         author = other.getAuthor();
         category = other.getCategory();

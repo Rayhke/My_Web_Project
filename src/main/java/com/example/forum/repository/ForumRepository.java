@@ -1,9 +1,11 @@
-/*
 package com.example.forum.repository;
 
-import org.springframework.stereotype.Repository;
+import com.example.forum.entity.Forum;
 
-@Repository
-public class ForumRepository {
+import java.util.List;
 
-}*/
+
+public interface ForumRepository {
+
+    List<Forum> findAll();
+}

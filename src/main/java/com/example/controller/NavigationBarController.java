@@ -1,6 +1,8 @@
 package com.example.controller;
 
-import com.example.forum.controller.ForumDTO;
+import com.example.forum.entity.Forum;
+import com.example.forum.repository.ForumJpaRepository;
+import com.example.forum.service.ForumService;
 import groovy.util.logging.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,27 +22,13 @@ public class NavigationBarController {
 
     @GetMapping("/forum")
     public String forum(Model model) {
-        List<ForumDTO> list = new ArrayList<>();
-        // 이것을 DB로 연결하여 가져와야 한다.
-        list.add(ForumDTO.builder()
-                .id(3L)
-                .category("일반")
-                .title("비둘기 고꾸라지다!")
-                .author("비둘기")
-                .build());
-        list.add(ForumDTO.builder()
-                .id(2L)
-                .category("공지")
-                .title("아니 글쎄 치킨이 되었어요.")
-                .author("닭둘기")
-                .build());
-        list.add(ForumDTO.builder()
-                .id(1L)
-                .category("유머")
-                .title("고속도로 달리다 연로가 떨어졌어요.")
-                .author("봉고차")
-                .build());
-        model.addAttribute("forumPageList", list);
+        ForumService test = new ForumService(new ForumJpaRepository());
+        List<Forum> list = test.ForumList();
+        if (list.isEmpty()) {
+            model.addAttribute("error", "조회 실패");
+        } else {
+            model.addAttribute("forumPageList", list);
+        }
         return "forum";
     }
 

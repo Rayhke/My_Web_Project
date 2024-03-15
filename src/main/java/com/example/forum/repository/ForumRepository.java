@@ -1,3 +1,4 @@
+/*
 package com.example.forum.repository;
 
 import org.springframework.stereotype.Repository;
@@ -5,4 +6,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ForumRepository {
 
-}
+}*/

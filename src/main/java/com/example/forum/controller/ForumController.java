@@ -1,3 +1,4 @@
+/*
 package com.example.forum.controller;
 
 import com.example.forum.service.impl.ForumServiceImpl;
@@ -22,4 +23,4 @@ public class ForumController {
     public ForumDTO createdForum(@RequestBody ForumDTO forumDTO) {
         return forumService.save(forumDTO.getId(), forumDTO.getAuthor());
     }
-}
+}*/

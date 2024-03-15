@@ -1,3 +1,4 @@
+/*
 package com.example.forum.service.impl;
 
 import com.example.forum.controller.ForumDTO;
@@ -35,3 +36,4 @@ public class ForumServiceImpl implements ForumService {
         return null;
     }
 }
+*/

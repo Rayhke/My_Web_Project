@@ -1,3 +1,4 @@
+/*
 package com.example.user.service;
 
 import com.example.user.dto.UserDTO;
@@ -28,3 +29,4 @@ public class UserService {
         return em.find(Member.class, userId);
     }
 }
+*/

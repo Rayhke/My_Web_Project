@@ -10,9 +10,25 @@
         <title>게시판</title>
     </head>
     <body>
-        <tr th:each="paging : ${pagingList}">
-            <td th:text="paging.id"></td>
-            <td></td>
-        </tr>
+        <table>
+            <thead>
+                <tr>
+                    <td>[ID]</td>
+                    <td>[카테고리]</td>
+                    <td>[제목]</td>
+                    <td>[작성자]</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="forumPage:${forumPageList}">
+                    <td><span th:text="${forumPage.id}"></span></td>
+                    <td><span th:text="${forumPage.category}"></span></td>
+                    <!-- 제목 클릭 시 내용 이동 -->
+                    <td><span th:text="${forumPage.title}"></span></td>
+                    <!-- 작성자 클릭 시 유저 프로필 이동 -->
+                    <td><span th:text="${forumPage.author}"></span></td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>

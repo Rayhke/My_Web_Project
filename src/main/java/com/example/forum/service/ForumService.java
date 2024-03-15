@@ -1,3 +1,4 @@
+/*
 package com.example.forum.service;
 
 import com.example.forum.controller.ForumDTO;
@@ -14,3 +15,4 @@ public interface ForumService {
     Optional<Forum> findById(Long id);
 
 }
+*/

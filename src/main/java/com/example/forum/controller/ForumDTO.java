@@ -1,24 +1,21 @@
 package com.example.forum.controller;
 
-import lombok.*;
-
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ForumDTO {
-    @Id
-    private Long id;
-    private String author;
 
-    /*public Forum toEntity() {
-    public Forum toEntity() {
-        return Forum.builder()
-                .id(id)
-                .author(author)
-                .build();
-    }*/
+    private Long id;
+    private String title;
+    private String author;
+    private String category;
+
 }

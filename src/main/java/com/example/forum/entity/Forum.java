@@ -1,7 +1,5 @@
 package com.example.forum.entity;
 
-
-import com.example.forum.controller.ForumDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

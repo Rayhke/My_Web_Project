@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/forum")
 public class ForumController {
 
     private final ForumService forumService;
@@ -19,7 +22,7 @@ public class ForumController {
         this.forumService = forumService;
     }
 
-    @GetMapping("/forum")
+    @GetMapping("/")
     public String forum(Model model) {
         List<Forum> list = getForumList();
         for (Forum forum : list) {
@@ -31,6 +34,11 @@ public class ForumController {
             model.addAttribute("forumPageList", list);
         }
         return "forum";
+    }
+
+    @PostMapping("/select")
+    public String test(Model model) {
+        return "redirect:";
     }
 
     public List<Forum> getForumList() {

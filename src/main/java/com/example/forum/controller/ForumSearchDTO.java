@@ -11,11 +11,8 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ForumDTO {
+public class ForumSearchDTO {
 
-    private Long id;
-    private String title;
-    private String author;
     private String category;
-
+    private String detail;
 }

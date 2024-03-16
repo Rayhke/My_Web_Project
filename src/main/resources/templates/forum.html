@@ -17,29 +17,42 @@
 
     <body>
         <div th:if="${error}">
-            <b>[<span th:text="${error}"></span>]</b>
+            <b>[<span th:text="${error}"/>]</b>
         </div>
-        <div th:if="${forumPageList}">
-            <table>
-                <thead>
-                <tr>
-                    <td>[ID]</td>
-                    <td>[카테고리]</td>
-                    <td>[제목]</td>
-                    <td>[작성자]</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="forumPage:${forumPageList}">
-                    <td><span th:text="${forumPage.id}"></span></td>
-                    <td><span th:text="${forumPage.category}"></span></td>
-                    <!-- 제목 클릭 시 내용 이동 -->
-                    <td><span th:text="${forumPage.title}"></span></td>
-                    <!-- 작성자 클릭 시 유저 프로필 이동 -->
-                    <td><span th:text="${forumPage.author}"></span></td>
-                </tr>
-                </tbody>
-            </table>
+
+        <div align="center">
+            <div th:if="${forumPageList}">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>[ID]</td>
+                        <td>[카테고리]</td>
+                        <td>[제목]</td>
+                        <td>[작성자]</td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="forumPage:${forumPageList}">
+                        <td><span th:text="${forumPage.id}"/></td>
+                        <td><span th:text="${forumPage.category}"/></td>
+                        <td><a href=""><span th:text="${forumPage.title}"/></a></td>
+                        <td><span th:text="${forumPage.author}"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><br><br>
+
+            <div align="center">
+                <form th:action th:object="${id}" method="post">
+                    <select name="Option" id="searchOption">
+                        <option value="title">제목</option>
+                        <option value="author">작성자</option>
+                    </select>
+                    <input type="text" id="Search" name="Search" placeholder="검색어를 입력해주세요"/>
+                    <button>검색</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

@@ -2,13 +2,10 @@ package com.example.forum.service;
 
 import com.example.forum.entity.Forum;
 import com.example.forum.repository.ForumRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class ForumService {
 
     private final ForumRepository forumRepository;
@@ -18,7 +15,7 @@ public class ForumService {
         this.forumRepository = forumRepository;
     }
 
-    public List<Forum> ForumList() {
+    public List<Forum> getForumList() {
         return forumRepository.findAll();
     }
 }

@@ -3,9 +3,13 @@ package com.example.forum.controller;
 import com.example.forum.entity.Forum;
 import com.example.forum.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+@Controller
 public class ForumController {
 
     private final ForumService forumService;
@@ -15,7 +19,21 @@ public class ForumController {
         this.forumService = forumService;
     }
 
-    public List<Forum> ForumList() {
-        return forumService.ForumList();
+    @GetMapping("/forum")
+    public String forum(Model model) {
+        List<Forum> list = getForumList();
+        for (Forum forum : list) {
+            System.out.println(forum.toString());
+        }
+        if (list.isEmpty()) {
+            model.addAttribute("error", "조회 실패");
+        } else {
+            model.addAttribute("forumPageList", list);
+        }
+        return "forum";
+    }
+
+    public List<Forum> getForumList() {
+        return forumService.getForumList();
     }
 }

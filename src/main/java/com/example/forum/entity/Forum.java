@@ -13,12 +13,15 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Forum extends BaseEntity {
+public class Forum { // extends BaseEntity
 
     @Id
     private Long id;
+
     private String title;
+
     private String author;
+
     private String category;
 
     public void update(Forum other) {

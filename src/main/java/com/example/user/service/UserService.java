@@ -1,4 +1,3 @@
-/*
 package com.example.user.service;
 
 import com.example.user.dto.UserDTO;
@@ -17,7 +16,7 @@ public class UserService {
 
     @Autowired
     private final UserRepository userRepository;
-    
+
     @Autowired
     private final EntityManager em;
 
@@ -29,4 +28,3 @@ public class UserService {
         return em.find(Member.class, userId);
     }
 }
-*/

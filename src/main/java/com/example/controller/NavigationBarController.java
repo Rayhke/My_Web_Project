@@ -23,11 +23,14 @@ public class NavigationBarController {
     public String forum(Model model) {
         ForumService test = new ForumService(new ForumJpaRepository());
         List<Forum> list = test.ForumList();
-        if (list.isEmpty()) {
+        for (Forum forum : list) {
+            System.out.println(forum.toString());
+        }
+        /*if (list.isEmpty()) {
             model.addAttribute("error", "조회 실패");
         } else {
             model.addAttribute("forumPageList", list);
-        }
+        }*/
         return "forum";
     }
 

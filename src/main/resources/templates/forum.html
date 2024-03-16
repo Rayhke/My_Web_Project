@@ -7,19 +7,29 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>게시판</title>
+        <style th:inline="css" type="text/css">
+            body {
+                margin: 30px;
+                border: 1px solid red;
+            }
+        </style>
     </head>
+
     <body>
-        <table>
-            <thead>
+        <div th:if="${error}">
+            <b>[<span th:text="${error}"></span>]</b>
+        </div>
+        <div th:if="${forumPageList}">
+            <table>
+                <thead>
                 <tr>
                     <td>[ID]</td>
                     <td>[카테고리]</td>
                     <td>[제목]</td>
                     <td>[작성자]</td>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr th:each="forumPage:${forumPageList}">
                     <td><span th:text="${forumPage.id}"></span></td>
                     <td><span th:text="${forumPage.category}"></span></td>
@@ -28,7 +38,8 @@
                     <!-- 작성자 클릭 시 유저 프로필 이동 -->
                     <td><span th:text="${forumPage.author}"></span></td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

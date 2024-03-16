@@ -9,7 +9,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
-@Repository
 public class ForumJpaRepository implements ForumRepository {
 
     /*private final DataSource dataSource;
@@ -26,7 +25,7 @@ public class ForumJpaRepository implements ForumRepository {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
-        List<Forum> forumList = null;
+        List<Forum> forumList;
 
         try {
             tx.begin();
@@ -34,7 +33,15 @@ public class ForumJpaRepository implements ForumRepository {
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
-            throw new IllegalArgumentException("");
+            /**
+             * 의도치 않은 값을 건내줬을 경우
+             * throw new IllegalArgumentException("");
+             * 
+             * 의도치 않은 값을 받았을 경우
+             * throw new IllegalStateException("");
+             */
+            throw new IllegalStateException("[forum 테이블 조회 : error]");
+
         } finally {
             em.close(); emf.close();
         }

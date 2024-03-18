@@ -32,20 +32,20 @@ public class Page { // extends BaseEntity
 
     private String category;
 
-    @Column(name="main_text", length = 1001)
-    private String mainText;
+    @Column(length = 1001)
+    private String main_text;
 
     public void update(Page other) {
         title = other.getTitle();
         author = other.getAuthor();
         category = other.getCategory();
-        mainText = other.getMainText();
+        main_text = other.getMain_text();
     }
 
     public boolean allNotNull() {
         return (title == "" || title == null
                 || author == "" || author == null
                 || category == "" || category == null
-                || mainText == "" || mainText == null);
+                || main_text == "" || main_text == null);
     }
 }

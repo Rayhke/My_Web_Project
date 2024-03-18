@@ -22,7 +22,7 @@ public class PageDTO {
 
     private String category;
 
-    private String mainText;
+    private String main_text;
 
     public Page Join() {
         return new Page().builder()
@@ -30,7 +30,7 @@ public class PageDTO {
                 .title(title)
                 .author(author)
                 .category(category)
-                .mainText(mainText)
+                .main_text(main_text)
                 .build();
     }
 }

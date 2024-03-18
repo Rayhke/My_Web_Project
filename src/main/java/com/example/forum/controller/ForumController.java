@@ -25,7 +25,7 @@ public class ForumController {
 
     @GetMapping("/")
     public String forum(@RequestParam(name = "mode", required = false) String mode, @RequestParam(name = "contents", required = false) String content, Model model) {
-        List<Page> result = null;
+        List<Page> result;
 
         if (mode != null && content != null) {
             result = selectPageList(new ForumSearchDTO(mode, content));

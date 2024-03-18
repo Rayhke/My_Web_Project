@@ -1,6 +1,5 @@
 package com.example;
 
-import com.DB_Test.JPA.MemberService;
 import com.example.forum.repository.ForumJpaRepository;
 import com.example.forum.repository.ForumRepository;
 import com.example.forum.service.ForumService;

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="UTF-8"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/defaultLayout}"
+      layout:fragment="Content">
+    <head>
+        <meta charset="UTF-8">
+
+        <style th:inline="css" type="text/css">
+            body {
+                margin: 30px;
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div th:if="${error}">
+            <b>[<span th:text="${error}"/>]</b>
+        </div>
+
+        <div th:if="${forumPage}">
+            <table>
+                <thead>
+                    <tr>
+                        <td>[ID]</td>
+                        <td>[카테고리]</td>
+                        <td>[제목]</td>
+                        <td>[작성자]</td>
+                        <td>[수정]</td>
+                        <td>[삭제]</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><span th:text="${forumPage.id}"/></td>
+                        <td><span th:text="${forumPage.category}"/></td>
+                        <td><span th:text="${forumPage.title}"/></td>
+                        <td><span th:text="${forumPage.author}"/></td>
+                        <td><button>수정</button></td>
+                        <td><button>삭제</button></td>
+                    </tr>
+                </tbody>
+            </table><br><br>
+
+            <tr>
+                <td><span th:text="${forumPage.mainText}"/></td>
+            </tr>
+        </div>
+    </body>
+</html>

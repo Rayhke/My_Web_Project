@@ -13,6 +13,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ForumSearchDTO {
 
-    private String category;
-    private String detail;
+    private String mode;
+    private String mainText;
 }

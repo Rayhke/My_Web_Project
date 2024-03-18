@@ -17,42 +17,46 @@
 
     <body>
         <div th:if="${error}">
-            <b>[<span th:text="${error}"/>]</b>
-        </div>
+            <b>[<span th:text="${error}"></span>]</b><br><br>
+        </div><br><br>
+
+        <div th:if="${forumPageList}">
+            <table>
+                <thead>
+                    <tr>
+                        <td>[ID]</td> &nbsp; &nbsp;
+                        <td>[카테고리]</td> &nbsp; &nbsp;
+                        <td>[제목]</td> &nbsp; &nbsp;
+                        <td>[작성자]</td> &nbsp; &nbsp;
+                        <td>[수정]</td> &nbsp; &nbsp;
+                        <td>[삭제]</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="forumPage : ${forumPageList}">
+                        <td><span th:text="${forumPage.id}"/></td> &nbsp; &nbsp;
+                        <td><span th:text="${forumPage.category}"/></td> &nbsp; &nbsp;
+                        <td><a th:href="@{page/read(id=${forumPage.id})}"><span th:text="${forumPage.title}"/></a></td> &nbsp; &nbsp;
+                        <td><span th:text="${forumPage.author}"/></td> &nbsp; &nbsp;
+                        <td><a th:href="@{page/update(id=${forumPage.id})}"><button type="button">수정</button></a></td> &nbsp; &nbsp;
+                        <td><a th:href="@{page/delete(id=${forumPage.id})}"><button type="button">삭제</button></a></td>
+                    </tr>
+                </tbody> &nbsp; &nbsp;
+            </table>
+        </div><br><br>
 
         <div align="center">
-            <div th:if="${forumPageList}">
-                <table>
-                    <thead>
-                    <tr>
-                        <td>[ID]</td>
-                        <td>[카테고리]</td>
-                        <td>[제목]</td>
-                        <td>[작성자]</td>
-                    </tr>
-                    </thead>
+            <form action="/forum/page/select" method="get">
+                <select name="mode" id="mode">
+                    <option value="title">제목</option>
+                    <option value="author">작성자</option>
+                </select>
+                <input type="text" name="contents" placeholder="검색어를 입력해주세요" th:value="*{contents}"/>
+                <button type="submit">검색</button>
+            </form>
+        </div> &nbsp; &nbsp;
 
-                    <tbody>
-                    <tr th:each="forumPage:${forumPageList}">
-                        <td><span th:text="${forumPage.id}"/></td>
-                        <td><span th:text="${forumPage.category}"/></td>
-                        <td><a href=""><span th:text="${forumPage.title}"/></a></td>
-                        <td><span th:text="${forumPage.author}"/></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div><br><br>
-
-            <div align="center">
-                <form th:action th:object="${id}" method="post">
-                    <select name="Option" id="searchOption">
-                        <option value="title">제목</option>
-                        <option value="author">작성자</option>
-                    </select>
-                    <input type="text" id="Search" name="Search" placeholder="검색어를 입력해주세요"/>
-                    <button>검색</button>
-                </form>
-            </div>
-        </div>
+        <a th:href="@{page/write}"><button type="button">글 쓰기</button></a>
     </body>
 </html>

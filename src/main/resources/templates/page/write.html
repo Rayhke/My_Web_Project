@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="UTF-8"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/defaultLayout}"
+      layout:fragment="Content">
+    <head>
+        <meta charset="UTF-8">
+
+        <style th:inline="css" type="text/css">
+            body {
+                margin: 30px;
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div align="center">
+            <form action="/forum/page/write" method="post">
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" name="title" id="title"></td>
+                </tr><br>
+
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="author" id="author"></td>
+                </tr><br>
+
+                <tr>
+                    <td>카테고리</td>
+                    <td>
+                        <select name="category" id="category">
+                            <option value="자유">자유</option>
+                            <option value="질문">질문</option>
+                            <option value="공지">공지</option>
+                        </select>
+                    </td>
+                </tr><br>
+
+                <tr style="height: 300px;">
+                    <td>내용</td>
+                    <td><textarea name="text" id="text" rows="10" cols="50"></textarea></td>
+                </tr>
+
+                <button type="submit">작성</button>
+            </form>
+        </div>
+    </body>
+</html>

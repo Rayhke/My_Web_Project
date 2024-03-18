@@ -6,10 +6,10 @@
     <persistence-unit name="mysql">
         <class>com.example.user.entity.User</class>
         <class>com.example.user.entity.Member</class>
-        <class>com.example.forum.entity.Forum</class>
-        <class>com.example.forum.entity.BaseEntity</class>
-        <class>com.example.forum.repository.ForumRepository</class>
-        <class>com.example.forum.repository.ForumJpaRepository</class>
+        <class>com.example.page.entity.Page</class>
+        <class>com.example.page.entity.BaseEntity</class>
+        <class>com.example.page.repository.ForumRepository</class>
+        <class>com.example.page.repository.ForumJpaRepository</class>
         <class>com.DB_Test.JPA.MemberService</class>
         <class>com.DB_Test.JPA.MemberEntity</class>
         <properties>

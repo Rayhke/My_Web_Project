@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="UTF-8"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/defaultLayout}"
+      layout:fragment="Content">
+    <head>
+        <meta charset="UTF-8">
+
+        <style th:inline="css" type="text/css">
+            body {
+                margin: 30px;
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div align="center">
+            <form action="/forum/page/update" method="post">
+                <tr>
+                    <td>ID</td>
+                    <td><input type="number" name="id" id="id" th:value="${forumPage.id}" readonly/></td>
+                </tr><br>
+
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" name="title" id="title" th:value="${forumPage.title}"></td>
+                </tr><br>
+
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="author" id="author" th:value="${forumPage.author}" readonly/></td>
+                </tr><br>
+
+                <tr>
+                    <td>카테고리</td>
+                    <td>
+                        <select name="category" id="category">
+                            <option value="자유" th:selected="${forumPage.category == '자유'}">자유</option>
+                            <option value="질문" th:selected="${forumPage.category == '질문'}">질문</option>
+                            <option value="공지" th:selected="${forumPage.category == '공지'}">공지</option>
+                        </select>
+                    </td>
+                </tr><br>
+
+                <tr style="height: 300px;">
+                    <td>내용</td>
+                    <td><textarea name="mainText" id="mainText" rows="10" cols="50" th:text="${forumPage.mainText}"></textarea></td>
+                </tr>
+
+                <button type="submit">수정</button>
+            </form>
+        </div>
+    </body>
+</html>

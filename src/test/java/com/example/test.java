@@ -1,11 +1,5 @@
 package com.example;
 
-import com.example.forum.entity.BaseEntity;
-import com.example.forum.entity.Forum;
-import com.example.user.dto.UserDTO;
-import com.example.user.entity.Member;
-import com.example.user.entity.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

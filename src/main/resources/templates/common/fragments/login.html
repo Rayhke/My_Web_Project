@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <!-- Thymeleaf 선언 / fragment 으로 이름을 LoginFragment 임을 선언 -->
 <html lang="UTF-8"
-        xmlns:th="http://www.thymeleaf.org"
-        th:fragment="LoginFragment">
-
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="LoginFragment">
     <div style="border: solid 1px black">
         <div th:if="${session.loginUser}" align="center">
             <p>[로그인 유저 : <span th:text="${session.loginUser}"></span>]</p>
@@ -34,5 +33,4 @@
             </div><br>
         </div>
     </div>
-
 </html>

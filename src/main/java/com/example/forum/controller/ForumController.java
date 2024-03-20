@@ -24,15 +24,8 @@ public class ForumController {
     }
 
     @GetMapping("/")
-    public String forum(@RequestParam(name = "mode", required = false) String mode, @RequestParam(name = "contents", required = false) String content, Model model) {
-        List<Page> result;
-
-        if (mode != null && content != null) {
-            result = selectPageList(new ForumSearchDTO(mode, content));
-        } else {
-            result = getPageList();
-        }
-
+    public String forum(Model model) {
+        List<Page> result = getPageList();
         if (result.isEmpty()) {
             model.addAttribute("error", "게시글이 존재하지 않습니다.");
         } else {
@@ -88,13 +81,6 @@ public class ForumController {
     @PostMapping("/page/update")
     public String update(PageDTO pageDTO) {
         Page result = pageDTO.Join();
-        /*Page result = Page.builder()
-                .id(page.getId())
-                .title(page.getTitle())
-                .author(page.getAuthor())
-                .category(page.getCategory())
-                .mainText(page.getMainText()).build();*/
-        System.out.println("\n\n\n\n\n[" + result.toString() + "]\n\n\n\n\n");
         updatePage(result);
         return "redirect:/forum/";
     }
@@ -103,9 +89,7 @@ public class ForumController {
      * @return 삭제
      */
     @GetMapping("/page/delete")
-    public String delete(@RequestParam("id") Long id, Model model) {
-        // Long result = deletePage(id);
-        // return "page/delete";
+    public String delete(@RequestParam("id") Long id) {
         deletePage(id);
         return "redirect:/forum/";
     }
@@ -113,6 +97,17 @@ public class ForumController {
     /**
      * @return 검색
      */
+    @GetMapping("/page/select")
+    public String select(@RequestParam(name = "mode", required = false) String mode, @RequestParam(name = "contents", required = false) String content, Model model) {
+        ForumSearchDTO searchDTO = new ForumSearchDTO(mode, content);
+        List<Page> result = selectPageList(searchDTO);
+        if (result.isEmpty()) {
+            model.addAttribute("error", "조건에 부합하는 게시글이 존재하지 않습니다.");
+        } else {
+            model.addAttribute("forumPageList", result);
+        }
+        return "forum";
+    }
     /*@GetMapping("/search")
     public String select(@RequestParam("mode") String mode, @RequestParam("contents") String contents) {
         return "redirect:/forum/";

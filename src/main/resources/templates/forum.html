@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="UTF-8"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{common/layouts/defaultLayout}"
-      layout:fragment="Content">
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{common/layouts/defaultLayout}"
+        layout:fragment="Content">
     <head>
         <meta charset="UTF-8">
 
@@ -17,8 +17,8 @@
 
     <body>
         <div th:if="${error}">
-            <b>[<span th:text="${error}"></span>]</b><br><br>
-        </div><br><br>
+            <b>[<span th:text="${error}"></span>]</b>
+        </div>
 
         <div th:if="${forumPageList}">
             <table>
@@ -27,9 +27,7 @@
                         <td>[ID]</td> &nbsp; &nbsp;
                         <td>[카테고리]</td> &nbsp; &nbsp;
                         <td>[제목]</td> &nbsp; &nbsp;
-                        <td>[작성자]</td> &nbsp; &nbsp;
-                        <td>[수정]</td> &nbsp; &nbsp;
-                        <td>[삭제]</td>
+                        <td>[작성자]</td>
                     </tr>
                 </thead>
 
@@ -38,13 +36,11 @@
                         <td><span th:text="${forumPage.id}"/></td> &nbsp; &nbsp;
                         <td><span th:text="${forumPage.category}"/></td> &nbsp; &nbsp;
                         <td><a th:href="@{page/read(id=${forumPage.id})}"><span th:text="${forumPage.title}"/></a></td> &nbsp; &nbsp;
-                        <td><span th:text="${forumPage.author}"/></td> &nbsp; &nbsp;
-                        <td><a th:href="@{page/update(id=${forumPage.id})}"><button type="button">수정</button></a></td> &nbsp; &nbsp;
-                        <td><a th:href="@{page/delete(id=${forumPage.id})}"><button type="button">삭제</button></a></td>
+                        <td><a th:href="@{page/users(id=${forumPage.author})}"><span th:text="${forumPage.author}"/></a></td>
                     </tr>
-                </tbody> &nbsp; &nbsp;
+                </tbody>
             </table>
-        </div><br><br>
+        </div>
 
         <div align="center">
             <form action="/forum/page/select" method="get">
@@ -55,7 +51,7 @@
                 <input type="text" name="contents" placeholder="검색어를 입력해주세요" th:value="*{contents}"/>
                 <button type="submit">검색</button>
             </form>
-        </div> &nbsp; &nbsp;
+        </div> &nbsp;
 
         <a th:href="@{page/write}"><button type="button">글 쓰기</button></a>
     </body>

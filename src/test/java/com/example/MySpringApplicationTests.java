@@ -10,5 +10,4 @@ class MySpringApplicationTests {
 	void contextLoads() {
 
 	}
-
 }

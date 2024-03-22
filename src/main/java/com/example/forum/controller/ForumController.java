@@ -101,10 +101,10 @@ public class ForumController {
      * @return 검색
      */
     @GetMapping("/page/select")
-    public String select(@RequestParam(name = "mode", required = false) String mode,
-                         @RequestParam(name = "contents", required = false) String content,
+    public String select(@RequestParam(name = "where", required = false) String where,
+                         @RequestParam(name = "query", required = false) String query,
                          Model model) {
-        SearchDTO searchDTO = new SearchDTO(mode, content);
+        SearchDTO searchDTO = new SearchDTO(where, query);
         List<Page> result = selectPageList(searchDTO);
         if (result.isEmpty()) {
             model.addAttribute("error", "조건에 부합하는 게시글이 존재하지 않습니다.");

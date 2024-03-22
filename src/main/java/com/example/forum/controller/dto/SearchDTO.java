@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SearchDTO {
 
-    private String mode;
+    private String where;
 
-    private String mainText;
+    private String query;
 }

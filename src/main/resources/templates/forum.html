@@ -12,47 +12,57 @@
                 margin: 30px;
                 border: 1px solid red;
             }
+
+            .vertical-line {
+                border-left: 1px solid #000;
+                height: 100%;
+                margin-left: 10px;
+            }
         </style>
     </head>
 
     <body>
-        <div th:if="${error}">
-            <b>[<span th:text="${error}"></span>]</b>
-        </div>
+        <div align="center">
+            <div th:if="${error}">
+                <b>[<span th:text="${error}"></span>]</b>
+            </div>
 
-        <div th:if="${forumPageList}">
-            <table>
-                <thead>
+            <div th:if="${forumPageList}">
+                <table>
+                    <thead>
                     <tr>
                         <td>[ID]</td> &nbsp; &nbsp;
                         <td>[카테고리]</td> &nbsp; &nbsp;
                         <td>[제목]</td> &nbsp; &nbsp;
                         <td>[작성자]</td>
                     </tr>
-                </thead>
+                    </thead>
 
-                <tbody>
+                    <tbody>
                     <tr th:each="forumPage : ${forumPageList}">
                         <td><span th:text="${forumPage.id}"/></td> &nbsp; &nbsp;
                         <td><span th:text="${forumPage.category}"/></td> &nbsp; &nbsp;
                         <td><a th:href="@{page/read(id=${forumPage.id})}"><span th:text="${forumPage.title}"/></a></td> &nbsp; &nbsp;
                         <td><a th:href="@{page/users(id=${forumPage.author})}"><span th:text="${forumPage.author}"/></a></td>
                     </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div><br><br>
+
+
+            <div align="center">
+                <form action="/forum/page/select" method="get">
+                    <select id="where" name="where">
+                        <option value="title">제목</option>
+                        <option value="author">작성자</option>
+                    </select>
+                    <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요" th:value="*{contents}"/>
+                    <button type="submit">검색</button>
+                    <button type="reset">지우기</button>
+                </form>
+            </div> &nbsp;
+
+            <a th:href="@{page/write}"><button type="button">글 쓰기</button></a>
         </div>
-
-        <div align="center">
-            <form action="/forum/page/select" method="get">
-                <select name="mode" id="mode">
-                    <option value="title">제목</option>
-                    <option value="author">작성자</option>
-                </select>
-                <input type="text" name="contents" placeholder="검색어를 입력해주세요" th:value="*{contents}"/>
-                <button type="submit">검색</button>
-            </form>
-        </div> &nbsp;
-
-        <a th:href="@{page/write}"><button type="button">글 쓰기</button></a>
     </body>
 </html>

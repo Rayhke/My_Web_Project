@@ -79,8 +79,8 @@ public class ForumJpaRepository implements ForumRepository {
     @Override
     public List<Page> findByTitleOrAuthor(SearchDTO searchDTO) {
         String query = "SELECT * FROM forum_page WHERE "
-                + searchDTO.getMode()
-                + " LIKE '%" + searchDTO.getMainText() + "%'"
+                + searchDTO.getWhere()
+                + " LIKE '%" + searchDTO.getQuery() + "%'"
                 + " ORDER BY id DESC";
         try {
             return em.createNativeQuery(query, Page.class).getResultList();

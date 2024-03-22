@@ -1,14 +1,12 @@
-package com.example.forum.controller;
+package com.example.forum.controller.dto;
 
 import com.example.forum.entity.Page;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

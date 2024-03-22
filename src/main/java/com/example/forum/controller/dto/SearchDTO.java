@@ -1,18 +1,17 @@
-package com.example.forum.controller;
+package com.example.forum.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ForumSearchDTO {
+public class SearchDTO {
 
     private String mode;
+
     private String mainText;
 }

@@ -1,6 +1,6 @@
 package com.example.forum.repository;
 
-import com.example.forum.controller.ForumSearchDTO;
+import com.example.forum.controller.dto.SearchDTO;
 import com.example.forum.entity.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,7 +40,7 @@ public class ForumJpaRepository implements ForumRepository {
             Page result = em.find(Page.class, id);
             return result;
         } catch(Exception e) {
-            throw new IllegalStateException("[조회 실패] : " + e);
+            throw new IllegalArgumentException("[조회 실패] : " + e);
         }
     }
 
@@ -77,7 +77,7 @@ public class ForumJpaRepository implements ForumRepository {
     }
 
     @Override
-    public List<Page> findByTitleOrAuthor(ForumSearchDTO searchDTO) {
+    public List<Page> findByTitleOrAuthor(SearchDTO searchDTO) {
         String query = "SELECT * FROM forum_page WHERE "
                 + searchDTO.getMode()
                 + " LIKE '%" + searchDTO.getMainText() + "%'"

@@ -1,14 +1,10 @@
-package com.example.user.dto;
+package com.example.users.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @Getter
-@Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginDTO {

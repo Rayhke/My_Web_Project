@@ -1,48 +1,21 @@
 package com.example.forum.service;
 
-import com.example.forum.controller.ForumSearchDTO;
+import com.example.forum.controller.dto.SearchDTO;
 import com.example.forum.entity.Page;
-import com.example.forum.repository.ForumRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Transactional
-public class ForumService {
+public interface ForumService {
 
-    private final ForumRepository forumRepository;
+    Page savePage(Page page);
 
-    @Autowired
-    public ForumService(ForumRepository forumRepository) {
-        this.forumRepository = forumRepository;
-    }
+    Page getPage(Long id);
 
-    public Page savePage(Page page) {
-        return forumRepository.save(page);
-    }
+    List<Page> getPageList();
 
-    public Page getPage(Long id) {
-        return forumRepository.findById(id);
-    }
+    Page updatePage(Page page);
 
-    public List<Page> getPageList() {
-        return forumRepository.findAll();
-    }
+    Long deletePage(Long id);
 
-    public Page updatePage(Page page) {
-        return forumRepository.update(page);
-    }
-
-    public Long deletePage(Long id) {
-        return forumRepository.deleteById(id);
-    }
-
-    public List<Page> selectPageList(ForumSearchDTO searchDTO) {
-        return forumRepository.findByTitleOrAuthor(searchDTO);
-    }
-
-    /*public List<Forum> searchList(ForumSearchDTO searchDTO) {
-        return forumRepository.findByValue(searchDTO);
-    }*/
+    List<Page> selectPageList(SearchDTO searchDTO);
 }

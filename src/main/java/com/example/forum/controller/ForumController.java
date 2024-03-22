@@ -1,11 +1,14 @@
 package com.example.forum.controller;
 
+import com.example.forum.controller.dto.SearchDTO;
+import com.example.forum.controller.dto.PageDTO;
 import com.example.forum.entity.Page;
 import com.example.forum.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,8 +45,8 @@ public class ForumController {
     /**
      * @return 삽입
      */
-    @PostMapping("/page/write")
-    public String save(PageDTO pageDTO) {
+    @PostMapping("/page/write") // @ModelAttribute 를 안 써도 상관은 없으나, 사용하여 명확하게 명시
+    public String save(@ModelAttribute PageDTO pageDTO) {
         Page page = pageDTO.Join();
         savePage(page);
         return "redirect:/forum/";
@@ -98,8 +101,10 @@ public class ForumController {
      * @return 검색
      */
     @GetMapping("/page/select")
-    public String select(@RequestParam(name = "mode", required = false) String mode, @RequestParam(name = "contents", required = false) String content, Model model) {
-        ForumSearchDTO searchDTO = new ForumSearchDTO(mode, content);
+    public String select(@RequestParam(name = "mode", required = false) String mode,
+                         @RequestParam(name = "contents", required = false) String content,
+                         Model model) {
+        SearchDTO searchDTO = new SearchDTO(mode, content);
         List<Page> result = selectPageList(searchDTO);
         if (result.isEmpty()) {
             model.addAttribute("error", "조건에 부합하는 게시글이 존재하지 않습니다.");
@@ -145,7 +150,7 @@ public class ForumController {
     }
 
     // 검색
-    public List<Page> selectPageList(ForumSearchDTO searchDTO) {
+    public List<Page> selectPageList(SearchDTO searchDTO) {
         return forumService.selectPageList(searchDTO);
     }
 }

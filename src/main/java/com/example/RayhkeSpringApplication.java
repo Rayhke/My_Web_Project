@@ -12,7 +12,7 @@ public class RayhkeSpringApplication {
 		SpringApplication.run(RayhkeSpringApplication.class, args);
 	}
 	/*
-		실행 주소
+		[실행 주소]
 		http://localhost:8080/
 	 */
 }

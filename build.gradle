@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'			// 서버 재시작 없이 프론트엔드 변경점 즉시 반영
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	// JPA 패키지 (안에 JDBC 도 포함되어 있다. 그러니 위에껀 제거해도 무방)

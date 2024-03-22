@@ -1,4 +1,4 @@
-package com.example.user.entity;
+package com.example.users.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,14 +13,14 @@ import javax.persistence.Id;
 @ToString
 @Builder
 @AllArgsConstructor
-public class User {
+public class Users {
 
     @Id
     private String nickname;
 
     private String role;
 
-    public void updateUser(String nickname, String role) {
+    public void updateUsers(String nickname, String role) {
         this.nickname = nickname;
         this.role = role;
     }

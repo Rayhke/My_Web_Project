@@ -1,6 +1,6 @@
 package com.example.forum.repository;
 
-import com.example.forum.controller.ForumSearchDTO;
+import com.example.forum.controller.dto.SearchDTO;
 import com.example.forum.entity.Page;
 
 import java.util.List;
@@ -17,7 +17,5 @@ public interface ForumRepository {
 
     Long deleteById(Long id);
 
-    List<Page> findByTitleOrAuthor(ForumSearchDTO searchDTO);
-
-    // List<Forum> findByValue(ForumSearchDTO searchDTO);
+    List<Page> findByTitleOrAuthor(SearchDTO searchDTO);
 }

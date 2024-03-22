@@ -1,11 +1,9 @@
-package com.example.user.controller;
+package com.example.users.controller;
 
-import com.example.user.dto.LoginDTO;
-import com.example.user.dto.UserDTO;
-import com.example.user.entity.Member;
-import com.example.user.service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.users.controller.dto.LoginDTO;
+import com.example.users.controller.dto.UsersDTO;
+import com.example.users.entity.Member;
+import com.example.users.service.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,15 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequiredArgsConstructor
-public class UserController {
+public class UsersController {
 
-    @Autowired
-    private final UserService userService;
+    private final UsersService usersService;
+
+    public UsersController(UsersService usersService) {
+        this.usersService = usersService;
+    }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginDTO loginDTO, HttpServletRequest request) {
-        Member result = userService.findById(loginDTO.getUserId());
+    public String login(@ModelAttribute LoginDTO loginDTO,
+                        HttpServletRequest request) {
+        Member result = usersService.findById(loginDTO.getUserId());
         if (result.getId().equals(loginDTO.getUserId())) {
             if (result.getPwd().equals(loginDTO.getUserPwd())) {
                 HttpSession session = request.getSession();
@@ -42,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping("/member")
-    public String save(@ModelAttribute UserDTO userDTO) {
+    public String save(@ModelAttribute UsersDTO usersDTO) {
         // usersService.save(userDTO);
         return "users/ok";
     }
